@@ -1,0 +1,61 @@
+﻿  imgui-SFML.cpp
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(195,19): error C3646: 'joystickMapping': unknown override specifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(195,34): error C2143: syntax error: missing ',' before '['
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(195,61): error C2238: unexpected token(s) preceding ';'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(228,17): error C2065: 'joystickMapping': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(560,75): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(560,56): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(857,13): error C2065: 'ImGuiKey_': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(857,23): error C2146: syntax error: missing ';' before identifier 'finalKey'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(857,23): error C2065: 'finalKey': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(860,17): error C2065: 'finalKey': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(863,17): error C2065: 'finalKey': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(866,17): error C2065: 'finalKey': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(869,17): error C2065: 'finalKey': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(873,17): error C2065: 'finalKey': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(877,17): error C2065: 'finalKey': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(881,17): error C2065: 'finalKey': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(881,40): error C2061: syntax error: identifier 'ImGuiKey_'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(884,30): error C2039: 'joystickMapping': is not a member of '`anonymous-namespace'::WindowContext'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(179): message : see declaration of '`anonymous-namespace'::WindowContext'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(884,64): error C2065: 'finalKey': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1322,13): error C2065: 'ImGuiKey_': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1322,23): error C2146: syntax error: missing ';' before identifier 'key'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1322,23): error C2065: 'key': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1322,46): error C2039: 'joystickMapping': is not a member of '`anonymous-namespace'::WindowContext'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(179): message : see declaration of '`anonymous-namespace'::WindowContext'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1323,17): error C2065: 'key': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1326,36): error C2065: 'key': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1332,42): error C2061: syntax error: identifier 'ImGuiKey_'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1334,80): error C2065: 'axis': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1335,13): error C2065: 'inverted': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1338,39): error C2065: 'threshold': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1338,54): error C2065: 'maxThreshold': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1338,69): error C2065: 'threshold': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1340,34): error C2065: 'key': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1343,34): error C2065: 'key': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1347,46): error C2061: syntax error: identifier 'ImGuiKey_'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1349,32): error C2065: 'key1': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1349,38): error C2065: 'axis': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1349,45): error C2065: 'threshold': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1349,62): error C2065: 'inverted': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1350,32): error C2065: 'key2': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1350,38): error C2065: 'axis': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1350,44): error C2065: 'threshold': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1350,60): error C2065: 'inverted': undeclared identifier
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1354,9): error C2660: '`anonymous-namespace'::updateJoystickAxisPair': function does not take 6 arguments
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1347,10): message : see declaration of '`anonymous-namespace'::updateJoystickAxisPair'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1357,9): error C2660: '`anonymous-namespace'::updateJoystickAxisPair': function does not take 6 arguments
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1347,10): message : see declaration of '`anonymous-namespace'::updateJoystickAxisPair'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1363,9): error C2660: '`anonymous-namespace'::updateJoystickAxisPair': function does not take 6 arguments
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1347,10): message : see declaration of '`anonymous-namespace'::updateJoystickAxisPair'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1366,9): error C2660: '`anonymous-namespace'::updateJoystickAxisPair': function does not take 6 arguments
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1347,10): message : see declaration of '`anonymous-namespace'::updateJoystickAxisPair'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1370,9): error C2660: '`anonymous-namespace'::updateJoystickAxisPair': function does not take 6 arguments
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1347,10): message : see declaration of '`anonymous-namespace'::updateJoystickAxisPair'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1373,9): error C2660: '`anonymous-namespace'::updateJoystickAxisPair': function does not take 6 arguments
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1347,10): message : see declaration of '`anonymous-namespace'::updateJoystickAxisPair'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1377,9): error C2660: '`anonymous-namespace'::updateJoystickAxis': function does not take 6 arguments
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1332,10): message : see declaration of '`anonymous-namespace'::updateJoystickAxis'
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1379,9): error C2660: '`anonymous-namespace'::updateJoystickAxis': function does not take 6 arguments
+C:\Dev\CPP Projects\SFML Test\SFML Test\src\imgui\imgui-SFML.cpp(1332,10): message : see declaration of '`anonymous-namespace'::updateJoystickAxis'
