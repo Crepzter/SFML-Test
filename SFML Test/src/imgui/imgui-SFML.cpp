@@ -192,7 +192,7 @@ namespace {
         sf::Vector2i touchPos;
 
         unsigned int joystickId;
-        ImGuiKey_ joystickMapping[sf::Joystick::ButtonCount];
+        ImGuiKey joystickMapping[sf::Joystick::ButtonCount];
         StickInfo dPadInfo;
         StickInfo lStickInfo;
         StickInfo rStickInfo;
@@ -854,7 +854,7 @@ namespace ImGui {
             assert(s_currWindowCtx);
             // This function now expects ImGuiKey_* values.
             // For partial backwards compatibility, also expect some ImGuiNavInput_* values.
-            ImGuiKey_ finalKey;
+            ImGuiKey finalKey;
             switch (key) {
             case ImGuiNavInput_Activate:
                 finalKey = ImGuiKey_GamepadFaceDown;
@@ -878,7 +878,7 @@ namespace ImGui {
                 break;
             default:
                 assert(key >= ImGuiKey_NamedKey_BEGIN && key < ImGuiKey_NamedKey_END);
-                finalKey = static_cast<ImGuiKey_>(key);
+                finalKey = static_cast<ImGuiKey>(key);
             }
             assert(joystickButton < sf::Joystick::ButtonCount);
             s_currWindowCtx->joystickMapping[joystickButton] = finalKey;
@@ -1319,7 +1319,7 @@ namespace {
 
     void updateJoystickButtonState(ImGuiIO& io) {
         for (int i = 0; i < sf::Joystick::ButtonCount; ++i) {
-            ImGuiKey_ key = s_currWindowCtx->joystickMapping[i];
+            ImGuiKey key = s_currWindowCtx->joystickMapping[i];
             if (key != ImGuiKey_None) {
                 bool isPressed = sf::Joystick::isButtonPressed(s_currWindowCtx->joystickId, i);
                 if (s_currWindowCtx->windowHasFocus || !isPressed) {
@@ -1329,7 +1329,7 @@ namespace {
         }
     }
 
-    void updateJoystickAxis(ImGuiIO& io, ImGuiKey_ key, sf::Joystick::Axis axis, float threshold,
+    void updateJoystickAxis(ImGuiIO& io, ImGuiKey key, sf::Joystick::Axis axis, float threshold,
         float maxThreshold, bool inverted) {
         float pos = sf::Joystick::getAxisPosition(s_currWindowCtx->joystickId, axis);
         if (inverted) {
@@ -1344,7 +1344,7 @@ namespace {
         }
     }
 
-    void updateJoystickAxisPair(ImGuiIO& io, ImGuiKey_ key1, ImGuiKey_ key2, sf::Joystick::Axis axis,
+    void updateJoystickAxisPair(ImGuiIO& io, ImGuiKey key1, ImGuiKey key2, sf::Joystick::Axis axis,
         float threshold, bool inverted) {
         updateJoystickAxis(io, key1, axis, -threshold, -100, inverted);
         updateJoystickAxis(io, key2, axis, threshold, 100, inverted);
