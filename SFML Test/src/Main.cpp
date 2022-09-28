@@ -7,29 +7,24 @@
 
 #include "physics\Entity.h"
 #include "physics\Circle.h"
+#include "Utils.h"
 
-namespace Utils {
-	sf::Color clrFloatArr(float colors[3]) {
-		return sf::Color(
-			(int)(colors[0] * 255),
-			(int)(colors[1] * 255),
-			(int)(colors[2] * 255)
-		);
+void showEntityConfig(const char* name, Entity &entity) {
+	ImGui::Begin(name);
+	if (ImGui::Button("Reset Position")) {
+		entity.setPosition(sf::Vector2f(800.0f, 200.0f));
 	}
-
-	void showEntityConfig(const char* name, Circle &circleEntity) {
-		ImGui::Begin(name);
-		//ImGui::Checkbox(("Draw %s",name), &circleDrawn);
-		//ImGui::SliderFloat("Radius", &circleRadius, 0, 250);
-		//ImGui::ColorEdit3("Color", circleColor);
-		if (ImGui::Button("Reset Position")) {
-			circleEntity.setPosition(sf::Vector2f(200.0f, 200.0f));
-		}
-		ImGui::Text("Position: %.0f %.0f", circleEntity.getPosition().x, circleEntity.getPosition().y);
-		ImGui::Text("Velocity: %.3f %.3f", circleEntity.getVelocity().x, circleEntity.getVelocity().y);
-		ImGui::Text("Acceleration: %.3f %.3f", circleEntity.getAcceleration().x, circleEntity.getAcceleration().y);
-		ImGui::End();
+	if (ImGui::Button("Reset Velocity")) {
+		entity.setVelocity(sf::Vector2f(0.0f, 0.0f));
 	}
+	if (ImGui::Button("Reset Acceleration")) {
+		entity.setAcceleration(sf::Vector2f(0.0f, 0.0f));
+	}
+	ImGui::SliderFloat("Acceleration", &entity.acceleration.x, -0.5f, 0.5f);
+	ImGui::Text("Position: %.0f %.0f", entity.getPosition().x, entity.getPosition().y);
+	ImGui::Text("Velocity: %.3f %.3f", entity.getVelocity().x, entity.getVelocity().y);
+	ImGui::Text("Acceleration: %.3f %.3f", entity.getAcceleration().x, entity.getAcceleration().y);
+	ImGui::End();
 }
 
 int main() {
@@ -39,16 +34,13 @@ int main() {
 	window.setFramerateLimit(144);
 	sf::Event event;
 
-	sf::Vector2f circlePos(300.0f, 300.0f);
-	bool circleDrawn = true;
-	float circleRadius = 100.0f;
-	float circleColor[3] = { 1.0f, 1.0f, 1.0f };
-	sf::CircleShape circle(circleRadius);
-	circle.setPosition(circlePos);
-	circle.setFillColor(Utils::clrFloatArr(circleColor));
-	circle.setOrigin(circleRadius, circleRadius);
+	Circle circleEntity(sf::Vector2f(200.0f, 200.0f), sf::Color::Blue, 25.0f);
+	float radius = circleEntity.getRadius();
+	sf::CircleShape circle(radius);
+	circle.setPosition(circleEntity.getPosition());
+	circle.setFillColor(circleEntity.getColor());
+	circle.setOrigin(radius, radius);
 
-	Circle circleEntity(sf::Vector2f(200.0f, 200.0f), 25.0f);
 
 	sf::Clock deltaClock;
 	while (window.isOpen()) {
@@ -62,38 +54,19 @@ int main() {
 		sf::Time deltaTime = deltaClock.restart();
 		ImGui::SFML::Update(window, deltaTime);
 		
-		/*
-		ImGui::Begin("Config Circle");
-		ImGui::Checkbox("draw circle", &circleDrawn);
-		ImGui::SliderFloat("radius", &circleRadius, 0, 250);
-		ImGui::ColorEdit3("color", circleColor);
-		if (ImGui::Button("Reset")) {
-			circleEntity.setPosition(sf::Vector2f(200.0f, 200.0f));
-		}
-		ImGui::Text("Position: %.0f %.0f", circleEntity.getPosition().x, circleEntity.getPosition().y);
-		ImGui::Text("Velocity: %.3f %.3f", circleEntity.getVelocity().x, circleEntity.getVelocity().y);
-		ImGui::Text("Acceleration: %.3f %.3f", circleEntity.getAcceleration().x, circleEntity.getAcceleration().y);
-		ImGui::End();
-
 		ImGui::Begin("Stats");
 		ImGui::Text("FPS: %.0f", 1000.0f/deltaTime.asMilliseconds());
 		ImGui::End();
-		*/
 
-		Utils::showEntityConfig("circle1", circleEntity);
+		showEntityConfig("circle1", circleEntity);
 
-		circle.setRadius(circleRadius);
-		circle.setOrigin(circleRadius, circleRadius);
-		circle.setFillColor(Utils::clrFloatArr(circleColor));
-
-		circleEntity.updateMovement(deltaTime.asMilliseconds());
-
+		circleEntity.update(deltaTime.asMilliseconds());
 		circle.setPosition(circleEntity.getPosition());
 
 		// Render
 		window.clear();
 
-		if(circleDrawn) window.draw(circle);
+		window.draw(circle);
 
 		ImGui::SFML::Render(window);
 		window.display();
