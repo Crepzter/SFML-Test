@@ -9,6 +9,14 @@
 #include "physics\Circle.h"
 #include "Utils.h"
 
+
+//int a = 10
+//int* r = &a		r is the pointer to a
+//int& s = a		s is reference to a
+//int a = *r;		a is the dereferenced pointer to a
+//void m(int& a) {} takes in a reference to a
+
+
 void showEntityConfig(const char* name, Entity &entity) {
 	ImGui::Begin(name);
 	if (ImGui::Button("Reset Position")) {
@@ -34,13 +42,8 @@ int main() {
 	window.setFramerateLimit(144);
 	sf::Event event;
 
-	Circle circleEntity(sf::Vector2f(200.0f, 200.0f), sf::Color::Blue, 25.0f);
-	float radius = circleEntity.getRadius();
-	sf::CircleShape circle(radius);
-	circle.setPosition(circleEntity.getPosition());
-	circle.setFillColor(circleEntity.getColor());
-	circle.setOrigin(radius, radius);
-
+	//Circle circleEntity(sf::Vector2f(200.0f, 200.0f), sf::Color::Blue, 25.0f);
+	Circle circleEntity(sf::Vector2f(200.0f, 200.0f), sf::Color(155,240,50), 50.0f);
 
 	sf::Clock deltaClock;
 	while (window.isOpen()) {
@@ -59,14 +62,13 @@ int main() {
 		ImGui::End();
 
 		showEntityConfig("circle1", circleEntity);
-
 		circleEntity.update(deltaTime.asMilliseconds());
-		circle.setPosition(circleEntity.getPosition());
 
 		// Render
+
 		window.clear();
 
-		window.draw(circle);
+		circleEntity.draw(window);
 
 		ImGui::SFML::Render(window);
 		window.display();

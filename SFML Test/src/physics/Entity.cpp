@@ -1,8 +1,15 @@
 #include "Entity.h"
 
+#include <SFML\Graphics.hpp>
+
 void Entity::update(float dt) {
+	updateMovement(dt);
+	updateShape(dt);
+}
+
+void Entity::updateMovement(float dt) {
 	//TODO Fix this
-	velocity = velocity * 0.999f + (acceleration+sf::Vector2f(0,0.001f)) * dt;
+	velocity = velocity * 0.999f + (acceleration + sf::Vector2f(0, 0.001f)) * dt;
 	position = position + velocity * dt;
 
 	int bound_x1 = 100, bound_x2 = 1400, bound_y1 = 100, bound_y2 = 800;
@@ -24,11 +31,13 @@ void Entity::update(float dt) {
 		position.y = bound_y2;
 	}
 }
-
-void Entity::updateMovement(float dt) {
-
+/*
+void Entity::updateShape(float dt) {
+	//shape->setPosition(position);
 }
-
-void Entity::updateColor(float dt) {
-
+*/
+/*
+void Entity::draw(sf::RenderWindow* window) {
+	window->draw(shape);
 }
+*/

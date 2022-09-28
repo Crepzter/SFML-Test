@@ -3,16 +3,18 @@
 #include "imgui.h"
 #include "imgui-SFML.h"
 
+#include <SFML\Graphics.hpp>
+
 //#include "Utils.h"
 
 struct Entity {
-	Entity(sf::Vector2f position, sf::Color color, sf::Drawable drawable) {
+	Entity(sf::Vector2f position, sf::Color color) {
 		this->position = position;
 		this->velocity = sf::Vector2f(0.0f, 0.0f);
 		this->acceleration = sf::Vector2f(0.0f, 0.0f);
 		rotation = 0.0f;
 		this->color = color;
-	};
+	}
 
 public:
 	sf::Vector2f position;
@@ -26,7 +28,9 @@ public:
 
 	void update(float dt);
 	void updateMovement(float dt);
-	void updateColor(float dt);
+	virtual void updateShape(float dt) = 0;
+
+	virtual void draw(sf::RenderWindow& window) = 0;
 
 	// Getter & Setter
 
