@@ -55,9 +55,6 @@ int main() {
 	*shape.setRadius(10.0f);
 	*/
 
-	std::cout << sfm::length(sf::Vector2f(10.0f, 10.0f)) << std::endl;
-	std::cout << sfm::dot(sf::Vector2i(5, 10), sf::Vector2i(6, 3)) << std::endl;
-
 	Circle circleEntity1(sf::Vector2f(200.0f, 200.0f), sf::Color::Red, 50.0f);
 	Circle circleEntity2(sf::Vector2f(300.0f, 200.0f), sf::Color::Blue, 75.0f);
 
