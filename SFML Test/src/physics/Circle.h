@@ -6,7 +6,7 @@ struct Circle : public Entity {
 public:
 	Circle(sf::Vector2f position, sf::Color color, float radius) : Entity(position, color) {
 		this->radius = radius;
-
+		//shape = std::make_unique<sf::CircleShape>(radius);
 		shape.setRadius(radius);
 		shape.setPosition(position);
 		shape.setFillColor(color);
@@ -18,14 +18,9 @@ public:
 	sf::CircleShape shape;
 
 public:
-	void draw(sf::RenderWindow& window) {
-		window.draw(shape);
-	}
-
-	void updateShape(float dt) {
-		shape.setPosition(position);
-		shape.setRadius(radius);
-	}
+	void draw(sf::RenderWindow& window);
+	void updateShape(float dt);
+	void updateCollision();
 
 	// Getter & Setter
 

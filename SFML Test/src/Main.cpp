@@ -8,6 +8,7 @@
 #include "physics\Entity.h"
 #include "physics\Circle.h"
 #include "Utils.h"
+#include "Math.h"
 
 
 //int a = 10
@@ -42,8 +43,23 @@ int main() {
 	window.setFramerateLimit(144);
 	sf::Event event;
 
-	//Circle circleEntity(sf::Vector2f(200.0f, 200.0f), sf::Color::Blue, 25.0f);
-	Circle circleEntity(sf::Vector2f(200.0f, 200.0f), sf::Color(155,240,50), 50.0f);
+	//1.
+	/*
+	std::unique_ptr<sf::Shape> shape(new sf::CircleShape(100.0f));
+	shape->setFillColor(sf::Color::Blue);
+	
+	//2.
+	std::unique_ptr<sf::Shape> shape;
+	shape = std::make_unique<sf::CircleShape>(150.0f);
+	shape->setFillColor(sf::Color::Blue);
+	*shape.setRadius(10.0f);
+	*/
+
+	std::cout << sfm::length(sf::Vector2f(10.0f, 10.0f)) << std::endl;
+	std::cout << sfm::dot(sf::Vector2i(5, 10), sf::Vector2i(6, 3)) << std::endl;
+
+	Circle circleEntity1(sf::Vector2f(200.0f, 200.0f), sf::Color::Red, 50.0f);
+	Circle circleEntity2(sf::Vector2f(300.0f, 200.0f), sf::Color::Blue, 75.0f);
 
 	sf::Clock deltaClock;
 	while (window.isOpen()) {
@@ -61,14 +77,19 @@ int main() {
 		ImGui::Text("FPS: %.0f", 1000.0f/deltaTime.asMilliseconds());
 		ImGui::End();
 
-		showEntityConfig("circle1", circleEntity);
-		circleEntity.update(deltaTime.asMilliseconds());
+		showEntityConfig("circle1", circleEntity1);
+		circleEntity1.update(deltaTime.asMilliseconds());
+		showEntityConfig("circle2", circleEntity2);
+		circleEntity2.update(deltaTime.asMilliseconds());
 
 		// Render
 
 		window.clear();
 
-		circleEntity.draw(window);
+		circleEntity1.draw(window);
+		circleEntity2.draw(window);
+
+		//window.draw(*shape);
 
 		ImGui::SFML::Render(window);
 		window.display();

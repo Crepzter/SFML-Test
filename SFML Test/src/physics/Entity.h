@@ -22,15 +22,21 @@ public:
 	sf::Vector2f acceleration;
 	float rotation;
 	sf::Color color;
+	//std::unique_ptr<sf::Shape> shape;
 
 public:
 	// Update
 
 	void update(float dt);
 	void updateMovement(float dt);
+	virtual void updateCollision() = 0;
 	virtual void updateShape(float dt) = 0;
 
 	virtual void draw(sf::RenderWindow& window) = 0;
+
+	/*void draw(sf::RenderWindow& window) {
+		window.draw(*shape);
+	}*/
 
 	// Getter & Setter
 
