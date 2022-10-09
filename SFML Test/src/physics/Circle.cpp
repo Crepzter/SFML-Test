@@ -2,7 +2,7 @@
 
 #include <SFML\Graphics.hpp>
 
-#include "../Math.h"
+//#include "../Math.h"
 
 void Circle::updateCollision() {
 	int bound_x1 = 0, bound_x2 = 1520, bound_y1 = 0, bound_y2 = 900;

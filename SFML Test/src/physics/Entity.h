@@ -8,11 +8,12 @@
 //#include "Utils.h"
 
 struct Entity {
-	Entity(sf::Vector2f position, sf::Color color) {
+	Entity(sf::Vector2f position, float mass, sf::Color color) {
 		this->position = position;
 		this->velocity = sf::Vector2f(0.0f, 0.0f);
 		this->acceleration = sf::Vector2f(0.0f, 0.0f);
 		rotation = 0.0f;
+		this->mass = mass;
 		this->color = color;
 	}
 
@@ -21,6 +22,7 @@ public:
 	sf::Vector2f velocity;
 	sf::Vector2f acceleration;
 	float rotation;
+	float mass;
 	sf::Color color;
 	//std::unique_ptr<sf::Shape> shape;
 
@@ -41,6 +43,7 @@ public:
 	// Getter & Setter
 
 	sf::Vector2f getPosition() const { return position; }
+
 	void setPosition(sf::Vector2f position) { this->position = position; }
 
 	sf::Vector2f getVelocity() const { return velocity; }
@@ -51,4 +54,10 @@ public:
 
 	sf::Color getColor() const { return color; }
 	void setColor(sf::Color color) { this->color = color; }
+
+	float getRotation() const { return rotation; }
+	void setRotation(float rotation) { this->rotation = rotation; }
+
+	float getMass() const { return mass; }
+	void setMass(float mass) { this->mass = mass; }
 };

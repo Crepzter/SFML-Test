@@ -380,6 +380,9 @@
     <ClInclude Include="src\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\physics\Collider2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\include\SFML\Audio\SoundFileFactory.inl">
@@ -410,5 +413,8 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="imgui.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\playlist.txt" />
   </ItemGroup>
 </Project>

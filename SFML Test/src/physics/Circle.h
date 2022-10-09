@@ -4,7 +4,7 @@
 
 struct Circle : public Entity {
 public:
-	Circle(sf::Vector2f position, sf::Color color, float radius) : Entity(position, color) {
+	Circle(sf::Vector2f position, float mass, sf::Color color, float radius) : Entity(position, mass, color) {
 		this->radius = radius;
 		//shape = std::make_unique<sf::CircleShape>(radius);
 		shape.setRadius(radius);

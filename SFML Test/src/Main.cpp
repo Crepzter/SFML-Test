@@ -9,6 +9,7 @@
 #include "physics\Circle.h"
 #include "Utils.h"
 #include "Math.h"
+#include "physics\Collider2D.h"
 
 
 //int a = 10
@@ -43,20 +44,10 @@ int main() {
 	window.setFramerateLimit(144);
 	sf::Event event;
 
-	//1.
-	/*
-	std::unique_ptr<sf::Shape> shape(new sf::CircleShape(100.0f));
-	shape->setFillColor(sf::Color::Blue);
-	
-	//2.
-	std::unique_ptr<sf::Shape> shape;
-	shape = std::make_unique<sf::CircleShape>(150.0f);
-	shape->setFillColor(sf::Color::Blue);
-	*shape.setRadius(10.0f);
-	*/
+	Circle circleEntity1(sf::Vector2f(200.0f, 200.0f), 10, sf::Color::Red, 50.0f);
+	Circle circleEntity2(sf::Vector2f(300.0f, 200.0f), 5, sf::Color::Blue, 75.0f);
 
-	Circle circleEntity1(sf::Vector2f(200.0f, 200.0f), sf::Color::Red, 50.0f);
-	Circle circleEntity2(sf::Vector2f(300.0f, 200.0f), sf::Color::Blue, 75.0f);
+	bool isPicked;
 
 	sf::Clock deltaClock;
 	while (window.isOpen()) {
@@ -64,7 +55,18 @@ int main() {
 			ImGui::SFML::ProcessEvent(event);
 
 			if (event.type == sf::Event::Closed) window.close();
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) window.close();
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) window.close();
+
+			isPicked = false;
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+				sf::Vector2f mousePos(sf::Mouse::getPosition().x - window.getPosition().x, sf::Mouse::getPosition().y - window.getPosition().y);
+				if (sfm::compare(mousePos, circleEntity1.getPosition(), circleEntity1.getRadius())) {
+					circleEntity1.setAcceleration(sf::Vector2f(0, 0));
+					circleEntity1.setVelocity(sf::Vector2f(0, 0));
+					circleEntity1.setPosition(mousePos);
+					isPicked = true;
+				}
+			}
 		}
 
 		sf::Time deltaTime = deltaClock.restart();
@@ -75,9 +77,11 @@ int main() {
 		ImGui::End();
 
 		showEntityConfig("circle1", circleEntity1);
-		circleEntity1.update(deltaTime.asMilliseconds());
+		if(!isPicked) circleEntity1.update(deltaTime.asMilliseconds());
 		showEntityConfig("circle2", circleEntity2);
 		circleEntity2.update(deltaTime.asMilliseconds());
+
+		if (detect::circle_circle(circleEntity1, circleEntity2)) respond::circle_circle(circleEntity1, circleEntity2);
 
 		// Render
 

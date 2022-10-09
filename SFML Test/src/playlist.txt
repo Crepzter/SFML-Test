@@ -1,0 +1,18 @@
+1
+2
+
+4
+5
+6 ? Line Circle
+
+
+
+// 1.
+std::unique_ptr<sf::Shape> shape(new sf::CircleShape(100.0f));
+shape->setFillColor(sf::Color::Blue);
+	
+// 2.
+std::unique_ptr<sf::Shape> shape;
+shape = std::make_unique<sf::CircleShape>(150.0f);
+shape->setFillColor(sf::Color::Blue);
+*shape.setRadius(10.0f);

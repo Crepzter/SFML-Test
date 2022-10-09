@@ -272,6 +272,7 @@
     <ClInclude Include="Dependencies\include\SFML\Window\WindowStyle.hpp" />
     <ClInclude Include="src\Math.h" />
     <ClInclude Include="src\physics\Circle.h" />
+    <ClInclude Include="src\physics\Collider2D.h" />
     <ClInclude Include="src\physics\Entity.h" />
     <ClInclude Include="src\Utils.h" />
   </ItemGroup>
@@ -286,6 +287,9 @@
     <None Include="Dependencies\include\SFML\System\Vector2.inl" />
     <None Include="Dependencies\include\SFML\System\Vector3.inl" />
     <None Include="imgui.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\playlist.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
