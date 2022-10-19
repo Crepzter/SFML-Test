@@ -9,8 +9,6 @@
 
 namespace sfm {
 	// Length
-	//template <typename T, typename std::enable_if<std::is_arithmetic<T>::value>::type* = nullptr>
-	//template <typename T>
 	template <std::floating_point T>
 	constexpr T length(sf::Vector2<T> v) {
 		return std::sqrtf(v.x * v.x + v.y * v.y);
@@ -21,13 +19,13 @@ namespace sfm {
 	constexpr T lengthSqr(sf::Vector2<T> v) {
 		return (v.x * v.x + v.y * v.y);
 	}
-	
+
 	// Normalization
 	template <std::floating_point T>
 	constexpr sf::Vector2f norm(sf::Vector2<T> v) {
 		return v * (1 / sfm::length(v));
 	}
-	
+
 	// Dot Product
 	template <std::floating_point T>
 	constexpr float dot(sf::Vector2<T> v1, sf::Vector2<T> v2) {
@@ -39,7 +37,7 @@ namespace sfm {
 	constexpr float angle(sf::Vector2<T> v1, sf::Vector2<T> v2) {
 		return std::acosf(sfm::dot(v1, v2) / (sfm::length(v1) * sfm::length(v2)));
 	}
-	
+
 	// Dot Product 2
 	template <std::floating_point T>
 	constexpr float dot2(sf::Vector2<T> v1, sf::Vector2<T> v2) {
@@ -57,13 +55,13 @@ namespace sfm {
 		float cos = (float)std::cos(ang * std::numbers::pi / 180);
 		float sin = (float)std::sin(ang * std::numbers::pi / 180);
 
-		sf::Vector2f r( (t.x * cos - t.y * sin), (t.x * sin + t.y * cos) );
+		sf::Vector2f r((t.x * cos - t.y * sin), (t.x * sin + t.y * cos));
 
 		return o + r;
 	}
-	
+
 	// Compare floating point numbers
-	bool compare(float x, float y, float epsilon) {
+	inline bool compare(float x, float y, float epsilon) {
 		return std::fabs(x - y) < epsilon;
 	}
 

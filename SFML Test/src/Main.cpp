@@ -30,7 +30,7 @@ void showEntityConfig(const char* name, Entity &entity) {
 	if (ImGui::Button("Reset Acceleration")) {
 		entity.setAcceleration(sf::Vector2f(0.0f, 0.0f));
 	}
-	ImGui::SliderFloat("Acceleration", &entity.acceleration.x, -0.5f, 0.5f);
+	ImGui::SliderFloat("Acceleration", &entity.acceleration.x, -0.05f, 0.05f);
 	ImGui::Text("Position: %.0f %.0f", entity.getPosition().x, entity.getPosition().y);
 	ImGui::Text("Velocity: %.3f %.3f", entity.getVelocity().x, entity.getVelocity().y);
 	ImGui::Text("Acceleration: %.3f %.3f", entity.getAcceleration().x, entity.getAcceleration().y);
@@ -47,7 +47,8 @@ int main() {
 	Circle circleEntity1(sf::Vector2f(200.0f, 200.0f), 10, sf::Color::Red, 50.0f);
 	Circle circleEntity2(sf::Vector2f(300.0f, 200.0f), 5, sf::Color::Blue, 75.0f);
 
-	bool isPicked;
+	bool isPicked = false;
+	sf::Vector2f lastM(0, 0);
 
 	sf::Clock deltaClock;
 	while (window.isOpen()) {
@@ -57,14 +58,18 @@ int main() {
 			if (event.type == sf::Event::Closed) window.close();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) window.close();
 
-			isPicked = false;
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
 				sf::Vector2f mousePos(sf::Mouse::getPosition().x - window.getPosition().x, sf::Mouse::getPosition().y - window.getPosition().y);
 				if (sfm::compare(mousePos, circleEntity1.getPosition(), circleEntity1.getRadius())) {
+					lastM = mousePos;
 					circleEntity1.setAcceleration(sf::Vector2f(0, 0));
 					circleEntity1.setVelocity(sf::Vector2f(0, 0));
 					circleEntity1.setPosition(mousePos);
 					isPicked = true;
+				} else if (isPicked) {
+					std::cout << "released" << std::endl;
+					circleEntity1.setVelocity(mousePos - lastM);
+					isPicked = false;
 				}
 			}
 		}
@@ -77,7 +82,7 @@ int main() {
 		ImGui::End();
 
 		showEntityConfig("circle1", circleEntity1);
-		if(!isPicked) circleEntity1.update(deltaTime.asMilliseconds());
+		circleEntity1.update(deltaTime.asMilliseconds());
 		showEntityConfig("circle2", circleEntity2);
 		circleEntity2.update(deltaTime.asMilliseconds());
 

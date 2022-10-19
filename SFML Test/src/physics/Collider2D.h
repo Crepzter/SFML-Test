@@ -83,10 +83,20 @@ namespace respond {
 		float dis = c1.getRadius() + c2.getRadius() - sfm::length(cc);
 
 		float a = c1.getRadius() / (c1.getRadius() + c2.getRadius());
-		sf::Vector2f ccN = sfm::norm(cc);
-		ccN *= dis;
+		sf::Vector2f normal = sfm::norm(cc);
+		
+		c1.setPosition(c1.getPosition() + a * normal * dis);
+		c2.setPosition(c2.getPosition() - (1.0f - a) * normal * dis);
 
-		c1.setPosition(c1.getPosition() + a * ccN);
-		c2.setPosition(c2.getPosition() - (1.0f - a) * ccN);
+		sf::Vector2f relVel = c1.getVelocity() - c2.getVelocity();
+		float sepVel = sfm::dot(relVel, normal);
+
+		float newSepVel = -1 * sepVel;
+		float sepVelDiff = newSepVel - sepVel;
+		float impulse = sepVelDiff / (1/c1.getMass() + 1/c2.getMass());
+		sf::Vector2f impulseVec = normal * impulse;
+
+		c1.setVelocity(c1.getVelocity() + impulseVec / c1.getMass());
+		c2.setVelocity(c2.getVelocity() + -1.0f * impulseVec / c2.getMass());
 	}
 }
